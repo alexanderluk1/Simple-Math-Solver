@@ -96,15 +96,15 @@ function solve(stepObj) {
   switch (operator) {
     case "^":
       return numArr.reduce((acc, num) => {
-        return (acc ** num).toFixed(1);
+        return (acc ** num).toFixed(2);
       });
     case "*":
       return numArr.reduce((acc, num) => {
-        return (acc * num).toFixed(1);
+        return (acc * num).toFixed(2);
       });
     case "/":
       return numArr.reduce((acc, num) => {
-        return (acc / num).toFixed(1);
+        return (acc / num).toFixed(2);
       });
     case "+":
       return numArr.reduce((acc, num) => {
