@@ -31,13 +31,9 @@ function replaceNextStep(equation, step, result) {
 
 // --- Gets the next sub-equation the work on ---
 function getNextStep(equation) {
-  openBracketRegex = /[\(]/g; // Open Brackets
-  closeBracketRegex = /[\)]/g; // Open Brackets
   operatorRegex = /[+\-*/^]/g; // All operators
   numbersRegex = /-?\d+(\.\d)?/g; // Optional `-`, optional float
 
-  openBracketArr = equation.match(openBracketRegex);
-  closeBracketArr = equation.match(closeBracketRegex);
   operatorsArr = equation.match(operatorRegex);
   numbersArr = equation.match(numbersRegex);
 
@@ -50,10 +46,9 @@ function getNextStep(equation) {
   if (equation.includes("(") || equation.includes(")")) {
     // (1 + 2 * (3 + 4)) = 15
     // (1 + 2) * (3 + 4) = 21
-    // ((1 + 2) * 3 + (3 + 2) + (4 + 4)) = 22
+    // ((1 + 2) * 3 + (3 - 2) + (4 ^ 4)) = 22
 
     const bracketRegex = /\(\d+(\.\d)? (\+|\-|\*|\/|\^) (\d)+(\.\d)?\)/g;
-
     matchedEquation = equation.match(bracketRegex);
 
     if (matchedEquation != null) {
